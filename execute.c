@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * execute - executes a command
- * @args: array of arguments
- * @argv: array of arguments from main
+ * execute - creates a child process to execute a program via execve
+ * @args: array of command line arguments for target command
+ * @argv: main argument vector containing shell execution name
  *
- * Return: exit status
+ * Return: exit status code returned by child process
  */
 int execute(char **args, char **argv)
 {
@@ -25,6 +25,7 @@ int execute(char **args, char **argv)
 	{
 		if (execve(command_path, args, environ) == -1)
 			perror(argv[0]);
+		free(command_path);
 		exit(127);
 	}
 	else if (pid < 0)
@@ -36,8 +37,7 @@ int execute(char **args, char **argv)
 		waitpid(pid, &status, 0);
 	}
 
-	if (command_path != args[0])
-		free(command_path);
+	free(command_path);
 
 	if (WIFEXITED(status))
 		return (WEXITSTATUS(status));
