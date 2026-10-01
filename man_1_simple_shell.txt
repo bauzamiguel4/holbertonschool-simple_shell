@@ -1,0 +1,35 @@
+---
+
+### File: `man_1_simple_shell`
+*(This is a standard UNIX manual page formatted with `groff` macros).*
+
+```text
+.TH HSH 1 "October 2026" "1.0" "General Commands Manual"
+.SH NAME
+\fBhsh\fR \- simple UNIX command interpreter
+.SH SYNOPSIS
+.B ./hsh
+.br
+.B echo "command" | ./hsh
+.SH DESCRIPTION
+\fBhsh\fR is a basic UNIX shell (command line interpreter). It reads standard input, parses it, and executes the commands. It is designed to mimic the core behavior of the standard \fBsh\fR shell.
+.SH INVOCATION
+\fBhsh\fR can be invoked in two ways:
+.TP
+.B Interactive Mode
+When invoked without arguments from a terminal, \fBhsh\fR displays the prompt \fB($)\fR and waits for a command to be typed by the user.
+.TP
+.B Non-Interactive Mode
+When standard input is piped into \fBhsh\fR, it processes the input stream, executes the commands, and exits without displaying a prompt.
+.SH BUILT-IN COMMANDS
+The following built-in commands are supported:
+.TP
+.B exit
+Exits the shell.
+.TP
+.B env
+Prints the current environment variables.
+.SH RETURN VALUE
+\fBhsh\fR returns the exit status of the last command executed, or zero if no errors occurred.
+.SH AUTHORS
+Miguel Ángel Bauzá Nieves
