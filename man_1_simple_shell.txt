@@ -32,4 +32,4 @@ Prints the current environment variables.
 .SH RETURN VALUE
 \fBhsh\fR returns the exit status of the last command executed, or zero if no errors occurred.
 .SH AUTHORS
-Miguel Ángel Bauzá Nieves
+Miguel Ángel Bauzá Nieves 
